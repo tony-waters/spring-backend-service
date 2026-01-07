@@ -1,11 +1,9 @@
 package uk.bit1.spring_jpa_relationships.repository;
 
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 import uk.bit1.spring_jpa_relationships.entity.Customer;
 
-import java.util.List;
-
-public interface CustomerRepository extends CrudRepository<Customer, Long> {
+public interface CustomerRepository extends JpaRepository<Customer, Long> {
 
 //    Customer findById(long id);
 //
