@@ -5,6 +5,6 @@ import uk.bit1.spring_jpa_relationships.entity.Order;
 
 public interface OrderRepository extends CrudRepository<Order, Long> {
 
-    Order findById(long id);
+//    Order findById(long id);
 
 }
