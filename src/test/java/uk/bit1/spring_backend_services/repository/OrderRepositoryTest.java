@@ -56,12 +56,13 @@ public class OrderRepositoryTest {
 
     @Test
     void order_details_can_be_updated() {
-        testOrder.setDescription("Updated description");
+        String newDescription = "Updated description";
+        testOrder.setDescription(newDescription);
         customerRepository.save(testCustomer);
 
         Customer customer = customerRepository.findById(testCustomer.getId()).orElse(null);
         assertNotNull(customer);
-        assertEquals("Updated description", customer.getOrders().get(0).getDescription());
+        assertEquals(newDescription, customer.getOrders().get(0).getDescription());
     }
 
 }
