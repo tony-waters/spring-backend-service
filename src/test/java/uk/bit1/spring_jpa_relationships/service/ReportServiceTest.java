@@ -8,6 +8,8 @@ import org.springframework.boot.data.jpa.test.autoconfigure.DataJpaTest;
 import uk.bit1.spring_jpa_relationships.entity.Customer;
 import uk.bit1.spring_jpa_relationships.entity.Order;
 import uk.bit1.spring_jpa_relationships.repository.CustomerRepository;
+import uk.bit1.spring_jpa_relationships.repository.OrderRepository;
+import uk.bit1.spring_jpa_relationships.repository.ProductRepository;
 
 import java.util.List;
 
@@ -19,16 +21,22 @@ public class ReportServiceTest {
     @Autowired
     private CustomerRepository customerRepository;
 
+    @Autowired
+    private OrderRepository orderRepository;
+
+    @Autowired
+    private ProductRepository productRepository;
+
     private ReportService reportService;
 
     @BeforeEach
     public void setUp() {
-        reportService = new ReportService(customerRepository);
+        reportService = new ReportService(customerRepository, orderRepository, productRepository);
     }
 
     @AfterEach
     public void tearDown() {
-
+        reportService = null;
     }
 
     @Test
