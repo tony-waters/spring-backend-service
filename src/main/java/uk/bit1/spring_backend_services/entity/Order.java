@@ -14,6 +14,8 @@ public class Order {
 
     private String description;
 
+    private Boolean fulfilled = false;
+
     @ManyToMany
     @JoinTable
     private List<Product> products = new ArrayList<>();
@@ -42,6 +44,10 @@ public class Order {
         return description;
     }
 
+    public Boolean getFulfilled() {
+        return fulfilled;
+    }
+
     public Customer getCustomer() {
         return customer;
     }
@@ -56,6 +62,10 @@ public class Order {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public void setFulfilled(Boolean fulfilled) {
+        this.fulfilled = fulfilled;
     }
 
     public void setCustomer(Customer customer) {
