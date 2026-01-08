@@ -43,8 +43,7 @@ public class ProductServiceTest {
         ProductDto product = productService.getProductById(testProductDto.id());
         System.out.println(product);
         assertEquals(testProductDto.id(), product.id());
-        assertEquals("Product Name", product.name());
-        assertEquals("product descriptipon here", product.description());
+        assertEquals(testProductDto.name(), product.name());
+        assertEquals(testProductDto.description(), product.description());
     }
-
 }
