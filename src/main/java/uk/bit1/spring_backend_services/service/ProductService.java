@@ -1,8 +1,8 @@
-package uk.bit1.spring_jpa_relationships.service;
+package uk.bit1.spring_backend_services.service;
 
-import uk.bit1.spring_jpa_relationships.dto.ProductDto;
-import uk.bit1.spring_jpa_relationships.entity.Product;
-import uk.bit1.spring_jpa_relationships.repository.ProductRepository;
+import uk.bit1.spring_backend_services.dto.ProductDto;
+import uk.bit1.spring_backend_services.entity.Product;
+import uk.bit1.spring_backend_services.repository.ProductRepository;
 
 import java.util.Optional;
 

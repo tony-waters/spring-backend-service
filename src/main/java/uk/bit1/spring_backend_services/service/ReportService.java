@@ -1,10 +1,9 @@
-package uk.bit1.spring_jpa_relationships.service;
+package uk.bit1.spring_backend_services.service;
 
-import uk.bit1.spring_jpa_relationships.dto.ProductDto;
-import uk.bit1.spring_jpa_relationships.entity.Product;
-import uk.bit1.spring_jpa_relationships.repository.CustomerRepository;
-import uk.bit1.spring_jpa_relationships.repository.OrderRepository;
-import uk.bit1.spring_jpa_relationships.repository.ProductRepository;
+import uk.bit1.spring_backend_services.dto.ProductDto;
+import uk.bit1.spring_backend_services.repository.CustomerRepository;
+import uk.bit1.spring_backend_services.repository.OrderRepository;
+import uk.bit1.spring_backend_services.repository.ProductRepository;
 
 public class ReportService {
 

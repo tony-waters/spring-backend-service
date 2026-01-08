@@ -1,7 +1,7 @@
-package uk.bit1.spring_jpa_relationships.repository;
+package uk.bit1.spring_backend_services.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import uk.bit1.spring_jpa_relationships.entity.Customer;
+import uk.bit1.spring_backend_services.entity.Customer;
 
 public interface CustomerRepository extends JpaRepository<Customer, Long> {
 

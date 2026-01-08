@@ -1,4 +1,4 @@
-package uk.bit1.spring_jpa_relationships;
+package uk.bit1.spring_backend_services;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

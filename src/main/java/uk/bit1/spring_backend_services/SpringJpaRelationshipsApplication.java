@@ -1,4 +1,4 @@
-package uk.bit1.spring_jpa_relationships;
+package uk.bit1.spring_backend_services;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

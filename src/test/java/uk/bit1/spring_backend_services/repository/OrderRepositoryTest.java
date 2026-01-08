@@ -1,12 +1,12 @@
-package uk.bit1.spring_jpa_relationships.repository;
+package uk.bit1.spring_backend_services.repository;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.data.jpa.test.autoconfigure.DataJpaTest;
-import uk.bit1.spring_jpa_relationships.entity.Customer;
-import uk.bit1.spring_jpa_relationships.entity.Order;
+import uk.bit1.spring_backend_services.entity.Customer;
+import uk.bit1.spring_backend_services.entity.Order;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
