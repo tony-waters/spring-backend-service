@@ -19,10 +19,18 @@ public class CustomerRepositoryCrudTest {
 
     @Test
     void testInsert() {
-        Customer customer = new Customer("Bloggs", "Jo");
-        Customer insertedCustomer = customerRepository.save(customer);
-        assertEquals(entityManager.find(Customer.class, insertedCustomer.getId()), customer);
+        Customer newCustomer = new Customer("Bloggs", "Jo");
+        Customer insertedCustomer = customerRepository.save(newCustomer);
+        assertEquals(newCustomer, entityManager.find(Customer.class, insertedCustomer.getId()));
     }
 
-
+    @Test
+    void testUpdate() {
+        Customer newCustomer = new Customer("Bloggs", "Jo");
+        entityManager.persist(newCustomer);
+        String newFirstName = "Joseph";
+        newCustomer.setFirstName(newFirstName);
+        customerRepository.save(newCustomer);
+        assertEquals(newFirstName, entityManager.find(Customer.class, newCustomer.getId()).getFirstName());
+    }
 }
