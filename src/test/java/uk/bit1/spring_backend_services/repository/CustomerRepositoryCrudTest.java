@@ -46,4 +46,12 @@ public class CustomerRepositoryCrudTest {
         assertEquals("Bloggs", retrievedCustomer.getLastName());
         assertEquals("Jo", retrievedCustomer.getFirstName());
     }
+
+    @Test
+    void testDelete() {
+        Customer newCustomer = new Customer("Bloggs", "Jo");
+        entityManager.persist(newCustomer);
+        customerRepository.delete(newCustomer);
+        assertEquals(null, entityManager.find(Customer.class, newCustomer.getId()));
+    }
 }
