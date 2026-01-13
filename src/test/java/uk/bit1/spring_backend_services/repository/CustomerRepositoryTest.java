@@ -18,18 +18,28 @@ public class CustomerRepositoryTest {
     @Autowired
     private CustomerRepository customerRepository;
 
-    private Customer testCustomer;
     @Autowired
     private OrderRepository orderRepository;
+
+    private Customer testCustomer;
+    private Order testOrder1;
+    private Order testOrder2;
+
+    Long orderId1;
+    Long orderId2;
+
 
     @BeforeEach
     public void setUp() {
         testCustomer = new Customer("Bloggs", "Jo");
-        Order order1 = new Order("Order 1 for testOrder");
-        Order order2 = new Order("Order 2 for testOrder");
-        testCustomer.addOrder(order1);
-        testCustomer.addOrder(order2);
+        testOrder1 = new Order("Order 1 for testOrder");
+        testOrder2 = new Order("Order 2 for testOrder");
+        testCustomer.addOrder(testOrder1);
+        testCustomer.addOrder(testOrder2);
         customerRepository.save(testCustomer);
+
+        orderId1 = testOrder1.getId();
+        orderId2 = testOrder2.getId();
     }
 
     @AfterEach
@@ -49,6 +59,8 @@ public class CustomerRepositoryTest {
     void customer_has_orders() {
         Customer customer = customerRepository.findById(testCustomer.getId()).orElse(null);
         assertEquals(2, customer.getOrders().size());
+        assertEquals(testOrder1.getId(), customer.getOrders().get(0).getId());
+        assertEquals(testOrder2.getId(), customer.getOrders().get(1).getId());
     }
 
     @Test
@@ -97,26 +109,16 @@ public class CustomerRepositoryTest {
 //        assertEquals(1, orders.size());
 //        assertEquals("Order 2 for testOrder", orders.get(0).getDescription());
 //    }
-//
-//    @Test
-//    void customer_and_associated_orders_can_be_deleted() {
-//        Order order1 = new Order("Order 1 for testOrder");
-//        Order order2 = new Order("Order 2 for testOrder");
-//        testCustomer.addOrder(order1);
-//        testCustomer.addOrder(order2);
-//        customerRepository.save(testCustomer);
-//
-//        Long customerId = testCustomer.getId();
-//        Long id1 = order1.getId();
-//        assertEquals(1L, id1);
-//        Long id2 = order2.getId();
 
-//        Customer customer = customerRepository.findById(testCustomer.getId()).orElse(null);
-//        customerRepository.delete(customer);
-//
-//        assertEquals(null, customerRepository.findById(testCustomer.getId()).orElse(null));
-//        assertEquals(null, orderRepository.findById(id1).orElse(null));
-//    }
+    @Test
+    void customer_and_associated_orders_can_be_deleted() {
+        Customer customer = customerRepository.findById(testCustomer.getId()).orElse(null);
+        customerRepository.delete(customer);
+
+        assertEquals(null, customerRepository.findById(testCustomer.getId()).orElse(null));
+        assertEquals(null, orderRepository.findById(orderId1).orElse(null));
+        assertEquals(null, orderRepository.findById(orderId2).orElse(null));
+    }
 
     @Test
     void reacts_ok_when_removing_non_existent_object() {
