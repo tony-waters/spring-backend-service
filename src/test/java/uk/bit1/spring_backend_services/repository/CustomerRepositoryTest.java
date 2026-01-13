@@ -111,6 +111,12 @@ public class CustomerRepositoryTest {
 //    }
 
     @Test
+    void customer_orders_can_be_deletes() {
+        Customer customer = customerRepository.findById(testCustomer.getId()).orElse(null);
+
+    }
+
+    @Test
     void customer_and_associated_orders_can_be_deleted() {
         Customer customer = customerRepository.findById(testCustomer.getId()).orElse(null);
         customerRepository.delete(customer);
