@@ -25,6 +25,11 @@ public class Customer {
         this.firstName = firstName;
     }
 
+    public Customer(Long id, String lastName, String firstName) {
+        this(lastName, firstName);
+        this.id = id;
+    }
+
     public void addOrder(Order order) {
         orders.add(order);
         order.setCustomer(this);

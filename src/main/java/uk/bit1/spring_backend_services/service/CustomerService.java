@@ -27,4 +27,12 @@ public class CustomerService {
                 null
         );
     }
+
+    private Customer convertFromDto(CustomerDto customerDto) {
+        return new Customer(
+                customerDto.id(),
+                customerDto.lastName(),
+                customerDto.firstName()
+        );
+    }
 }
